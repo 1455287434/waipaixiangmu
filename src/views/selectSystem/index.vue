@@ -46,7 +46,7 @@ export default {
   transform: translate(-50%, -50%);
 }
 .title {
-  font-size: 70px;
+  font-size: 50px;
   background-image:-webkit-linear-gradient(bottom,#11466d,#20c2de,#25dbd3);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
@@ -59,8 +59,8 @@ export default {
   width: 100%;
   div {
     border: 1px solid #28e3f9;
-    width: 280px;
-    height: 400px;
+    width: 220px;
+    height: 350px;
     cursor: pointer;
     //border-radius: 4px;
     background: rgba(40,227,249, .05);
@@ -78,7 +78,7 @@ export default {
     }
     p {
       width: 180px;
-      font-size: 25px;
+      font-size: 20px;
       font-weight: bold;
       color: #fff;
       margin-top: 50px;
@@ -91,7 +91,7 @@ export default {
   }
 }
 .iconfont {
-  font-size: 130px;
+  font-size: 100px;
   color: #28e7ea;
 }
 </style>

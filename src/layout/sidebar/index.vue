@@ -20,7 +20,7 @@
         :collapse="isCollapse"
         :collapse-transition="true"
         :router="true">
-        <el-submenu :index="item.url" v-for="(item, index) in $store.state.menu" :key="index">
+        <el-submenu v-show="item.children.length > 0" :index="item.url" v-for="(item, index) in $store.state.menu" :key="index">
           <template slot="title">
             <i class="el-icon-location"></i>
             <span>{{ item.title }}</span>
@@ -40,6 +40,10 @@
             </el-menu-item>
           </el-submenu>
         </el-submenu>
+        <el-menu-item v-show="item.children.length === 0" :index="item.url" v-for="(item, index) in $store.state.menu" :key="index">
+          <i class="el-icon-location"></i>
+          <span slot="title">{{item.title}}</span>
+        </el-menu-item>
       </el-menu>
     </div>
 </template>
@@ -66,6 +70,9 @@ export default {
   transition: all .2s;
   background: #304156;
 }
+.sidebar-menu {
+  width: 100% !important;
+}
 .sidebar-title {
   height: 50px;
   background: #2b2f3a;
@@ -76,7 +83,7 @@ export default {
     justify-content: center;
     /*align-items: center;*/
     box-sizing: border-box;
-    width: 200px;
+    width: 220px;
     overflow: hidden;
     margin-right: 10px;
     transition: all .3s;
