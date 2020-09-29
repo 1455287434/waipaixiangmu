@@ -9,9 +9,13 @@ import energySystem from '../views/energySystem'
 import timeTask from '../views/energySystem/systemConfig'
 /* ----------------------- */
 // 设备系统
+/* ----------------------- */
 import equipmentSystem from '../views/equipmentSystem'
+/* ----------------------- */
 // 运维系统
+/* ----------------------- */
 import operationSystem from '../views/operationSystem'
+/* ----------------------- */
 // 容器主页
 import home from '../layout/home'
 
@@ -37,6 +41,7 @@ const routes = [
     name: 'home',
     component: home,
     children: [
+      /* ----------能源系统------------- */
       {
         path: '/energySystem',
         name: 'energySystem',
@@ -50,6 +55,7 @@ const routes = [
         meta: { title: '定时任务', path: '/timeTask' }
       },
       /* ------------------------- */
+      /* ------------设备系统------------- */
       {
         path: '/equipmentSystem',
         name: 'equipmentSystem',
@@ -57,12 +63,14 @@ const routes = [
         meta: { title: '设备系统', path: '/equipmentSystem' }
       },
       /* ------------------------- */
+      /* ------------运维系统------------- */
       {
         path: '/operationSystem',
         name: 'operationSystem',
         component: operationSystem,
         meta: { title: '运维系统', path: '/operationSystem' }
       }
+      /* ------------------------- */
     ]
   }
 ]

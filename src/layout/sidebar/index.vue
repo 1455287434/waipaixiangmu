@@ -20,7 +20,7 @@
         :collapse="isCollapse"
         :collapse-transition="true"
         :router="true">
-        <el-submenu v-show="item.children.length > 0" :index="item.url" v-for="(item, index) in $store.state.menu" :key="index">
+        <el-submenu v-show="item.children.length > 0" :index="item.url" v-for="(item, index) in menuList" :key="index">
           <template slot="title">
             <i class="el-icon-location"></i>
             <span>{{ item.title }}</span>
@@ -55,10 +55,6 @@ export default {
     return {
       setBtnColor: '#'
     }
-  },
-  mounted () {
-    // console.log(sessionStorage.menuList)
-    console.log(this.$store.state.menu)
   },
   computed: {
     isCollapse () {
