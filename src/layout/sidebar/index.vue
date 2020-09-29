@@ -56,9 +56,16 @@ export default {
       setBtnColor: '#'
     }
   },
+  mounted () {
+    // console.log(sessionStorage.menuList)
+    console.log(this.$store.state.menu)
+  },
   computed: {
     isCollapse () {
       return this.$store.state.isCollapse
+    },
+    menuList () {
+      return JSON.parse(sessionStorage.menuList)
     }
   }
 }

@@ -11,7 +11,7 @@ const energyMenuList = [
       {
         title: '定时任务',
         icon: 'iconfont icon-shengchanjiagong',
-        url: '/2',
+        url: '/timeTask',
         children: []
       }
     ]
@@ -547,15 +547,15 @@ const operationMenuList = [
 ]
 router.beforeEach((to, from, next) => {
   if (to.path === '/energySystem') {
-    // sessionStorage.menuList = JSON.stringify(energyMenuList)
+    sessionStorage.menuList = JSON.stringify(energyMenuList)
     store.dispatch('setMenuFn', energyMenuList)
   }
   if (to.path === '/equipmentSystem') {
-    // sessionStorage.menuList = JSON.stringify(equipmentMenuList)
+    sessionStorage.menuList = JSON.stringify(equipmentMenuList)
     store.dispatch('setMenuFn', equipmentMenuList)
   }
   if (to.path === '/operationSystem') {
-    // sessionStorage.menuList = JSON.stringify(operationMenuList)
+    sessionStorage.menuList = JSON.stringify(operationMenuList)
     store.dispatch('setMenuFn', operationMenuList)
   }
   next()

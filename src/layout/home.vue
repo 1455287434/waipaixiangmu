@@ -67,5 +67,6 @@ export default {
 .view-wrap {
   padding: 10px;
   box-sizing: border-box;
+  height: calc(100% - 90px);
 }
 </style>
