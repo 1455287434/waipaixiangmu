@@ -1,6 +1,6 @@
-const path = require("path");
-function resolve(dir) {
-  return path.join(__dirname, dir);
+const path = require('path')
+function resolve (dir) {
+  return path.join(__dirname, dir)
 }
 module.exports = {
   // 基本路径
@@ -24,7 +24,7 @@ module.exports = {
   // 生产环境是否生成 sourceMap 文件
   productionSourceMap: false,
   // css相关配置
-  /*css: {
+  /* css: {
       // 是否使用css分离插件 ExtractTextPlugin
       extract: true,
       // 开启 CSS source maps?
@@ -33,7 +33,7 @@ module.exports = {
       loaderOptions: {},
       // 启用 CSS modules for all css / pre-processor files.
       modules: false
-  },*/
+  }, */
   // use thread-loader for babel & TS in production build
   // enabled by default if the machine has more than 1 cores
   parallel: require('os').cpus().length > 1,
@@ -46,12 +46,12 @@ module.exports = {
   // webpack-dev-server 相关配置
   devServer: {
     // open: process.platform === 'darwin',
-    //将服务启动后默认打开浏览器
+    // 将服务启动后默认打开浏览器
     open: true,
     host: '0.0.0.0',
     port: 9999,
     https: false,
-    proxy: {// 设置代理
+    proxy: { // 设置代理
       '/api': {
         target: 'http://192.168.24.116:99/smart-community',
         changeOrigin: true,
@@ -67,11 +67,12 @@ module.exports = {
     // ...
   },
   // svg配置
+  /*eslint-disable*/
   chainWebpack: config => {
     config.module
       .rule('svg')
       .exclude.add(resolve('src/icons'))
-      .end();
+      .end()
 
     config.module
       .rule('icons')
@@ -82,6 +83,6 @@ module.exports = {
       .loader('svg-sprite-loader')
       .options({
         symbolId: 'icon-[name]'
-      });
+      })
   }
 }

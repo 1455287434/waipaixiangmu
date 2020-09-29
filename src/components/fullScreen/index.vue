@@ -14,7 +14,7 @@ export default {
   methods: {
     // 全屏事件
     handleFullScreen () {
-      let element = document.documentElement
+      const element = document.documentElement
       if (this.fullscreen) {
         if (document.exitFullscreen) {
           document.exitFullscreen()
