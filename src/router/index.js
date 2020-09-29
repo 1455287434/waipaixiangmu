@@ -49,6 +49,7 @@ const routes = [
         component: timeTask,
         meta: { title: '定时任务', path: '/timeTask' }
       },
+      
       /* ------------------------- */
       {
         path: '/equipmentSystem',
@@ -56,6 +57,7 @@ const routes = [
         component: equipmentSystem,
         meta: { title: '设备系统', path: '/equipmentSystem' }
       },
+
       /* ------------------------- */
       {
         path: '/operationSystem',
