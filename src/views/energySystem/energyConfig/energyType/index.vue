@@ -1,20 +1,22 @@
 <template>
-<div class="full-screen">
-  <i class="el-icon-full-screen" @click="handleFullScreen"></i>
-</div>
+  <div class="index">
+    <div class="main-wrap" id="mainWrap">
+<!--      <el-button @click="handleFullScreen">全屏</el-button>-->
+    <div class="screen-title">123321</div>
+    <div style="width: 20vw;height: 20vh;">
+      <dv-border-box-1>dv-border-box-1</dv-border-box-1>
+    </div>
+    </div>
+  </div>
 </template>
 
 <script>
 export default {
-  data () {
-    return {
-      fullscreen: false
-    }
-  },
+  name: 'index',
   methods: {
     // 全屏事件
     handleFullScreen () {
-      const element = document.documentElement
+      const element = document.getElementById('mainWrap')
       if (this.fullscreen) {
         if (document.exitFullscreen) {
           document.exitFullscreen()
@@ -43,9 +45,12 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-.icon-quanping {
-  font-size: 16px;
-  cursor: pointer;
+<style scoped>
+.main-wrap {
+  background-color: #0c1941;
+}
+.screen-title {
+  height: 15%;
+  background-color: #fff;
 }
 </style>

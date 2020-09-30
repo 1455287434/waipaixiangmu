@@ -8,9 +8,11 @@ import '@/styles/base.scss'
 import '@/iconfont/iconfont.css'
 import '@/util/routerIntercept'
 import echarts from 'echarts'
+import dataV from '@jiaminghi/data-view'
 Vue.prototype.$echarts = echarts
 Vue.config.productionTip = false
 Vue.use(ElementUI)
+Vue.use(dataV)
 new Vue({
   router,
   store,
