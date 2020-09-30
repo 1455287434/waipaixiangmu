@@ -8,6 +8,7 @@ import selectSystem from '../views/selectSystem'
 import energySystem from '../views/energySystem'
 import timeTask from '../views/energySystem/systemConfig'
 import energyType from '../views/energySystem/energyConfig/energyType'
+import equipmentConfig from '../views/energySystem/energyConfig/equipmentConfig'
 /* ----------------------- */
 // 设备系统
 /* ----------------------- */
@@ -60,6 +61,12 @@ const routes = [
         name: 'energyType',
         component: energyType,
         meta: { title: '能源类型配置', path: '/energyType' }
+      },
+      {
+        path: '/equipmentConfig',
+        name: 'equipmentConfig',
+        component: equipmentConfig,
+        meta: { title: '设备配置', path: '/equipmentConfig' }
       },
       /* ------------------------- */
       /* ------------设备系统------------- */

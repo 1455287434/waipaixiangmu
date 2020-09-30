@@ -48,7 +48,7 @@ const energyMenuList = [{
   {
     title: '设备配置',
     icon: 'iconfont icon-shengchanjiagong',
-    url: '/5',
+    url: '/equipmentConfig',
     children: []
   },
   {
