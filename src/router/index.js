@@ -8,6 +8,7 @@ import selectSystem from '../views/selectSystem'
 import energySystem from '../views/energySystem'
 import timeTask from '../views/energySystem/systemConfig'
 import energyType from '../views/energySystem/energyConfig/energyType'
+import equipmentConfig from '../views/energySystem/energyConfig/equipmentConfig'
 /* ----------------------- */
 // 设备系统
 /* ----------------------- */
@@ -61,6 +62,12 @@ const routes = [
         component: energyType,
         meta: { title: '能源类型配置', path: '/energyType' }
       },
+      {
+        path: '/equipmentConfig',
+        name: 'equipmentConfig',
+        component: equipmentConfig,
+        meta: { title: '设备配置', path: '/equipmentConfig' }
+      },
       /* ------------------------- */
       /* ------------设备系统------------- */
       {
@@ -86,13 +93,13 @@ const routes = [
       {
         path: '/calculationFormula',
         name: 'calculationFormula',
-        component: ()=>import("../views/operationSystem/calculationFormula"),
+        component: () => import('../views/operationSystem/calculationFormula'),
         meta: { title: '计算公式', path: '/calculationFormula' }
       },
       {
         path: '/calculationFormulaDetal',
         name: 'calculationFormulaDetal',
-        component: ()=>import("../views/operationSystem/calculationFormula/calculationFormulaDetal.vue"),
+        component: () => import('../views/operationSystem/calculationFormula/calculationFormulaDetal.vue'),
         meta: { title: '计算公式', path: '/calculationFormulaDetal' }
       },
       {

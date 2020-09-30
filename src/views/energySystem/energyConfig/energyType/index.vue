@@ -1,7 +1,8 @@
 <template>
-<div class="index">
+  <div class="index" style="position: relative">
+    <el-button type="text" @click="handleFullScreen" style="z-index: 9999; position: absolute; right: 5%;top: 1%;">切换全屏</el-button>
+
     <div class="main-wrap" id="mainWrap">
-      <el-button type="text" @click="handleFullScreen" style="position: absolute; right: 4%;top: 1%;">切换全屏</el-button>
       <!--表头部分-->
       <div class="screen-title set-flex">
         <div class="screen-title-l">
@@ -125,38 +126,31 @@
 </template>
 
 <script>
-import Charts from '@jiaminghi/charts'
 export default {
   name: 'index',
+  data () {
+    return {
+      fullscreen: false
+    }
+  },
   mounted () {
     this.drawLine()
     this.drawBar()
+    this.handleFullScreen()
   },
   methods: {
     // 全屏事件
     handleFullScreen () {
       const element = document.getElementById('mainWrap')
-      if (this.fullscreen) {
-        if (document.exitFullscreen) {
-          document.exitFullscreen()
-        } else if (document.webkitCancelFullScreen) {
-          document.webkitCancelFullScreen()
-        } else if (document.mozCancelFullScreen) {
-          document.mozCancelFullScreen()
-        } else if (document.msExitFullscreen) {
-          document.msExitFullscreen()
-        }
-      } else {
-        if (element.requestFullscreen) {
-          element.requestFullscreen()
-        } else if (element.webkitRequestFullScreen) {
-          element.webkitRequestFullScreen()
-        } else if (element.mozRequestFullScreen) {
-          element.mozRequestFullScreen()
-        } else if (element.msRequestFullscreen) {
-          // IE11
-          element.msRequestFullscreen()
-        }
+      if (element.requestFullscreen) {
+        element.requestFullscreen()
+      } else if (element.webkitRequestFullScreen) {
+        element.webkitRequestFullScreen()
+      } else if (element.mozRequestFullScreen) {
+        element.mozRequestFullScreen()
+      } else if (element.msRequestFullscreen) {
+        // IE11
+        element.msRequestFullscreen()
       }
       this.fullscreen = !this.fullscreen
     },
@@ -387,6 +381,7 @@ export default {
 .main-wrap {
   background-color: #0c1941;
   position: relative;
+  overflow: hidden;
 }
 
 .screen-title {
@@ -394,7 +389,8 @@ export default {
   width: 100%;
 }
 .screen-title-c {
-  width: 20%;
+  width: 24%;
+  min-width: 24%;
   height: 100%;
   text-align: center;
   font-size: 30px;
@@ -405,7 +401,8 @@ export default {
   color: #fff
 }
 .screen-title-l,.screen-title-r {
-  width: 40%;
+  width: 38%;
+  min-width: 38%;
 }
 
 /*中间部分*/
