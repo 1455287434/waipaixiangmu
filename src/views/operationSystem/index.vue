@@ -1,12 +1,12 @@
 <template>
-  <div class="index">
+<div class="index">
     运维系统
-  </div>
+</div>
 </template>
 
 <script>
 export default {
-  name: 'index'
+    name: 'index'
 }
 </script>
 

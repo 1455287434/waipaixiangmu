@@ -82,6 +82,18 @@ const routes = [
         name: 'operationSystem',
         component: operationSystem,
         meta: { title: '运维系统', path: '/operationSystem' }
+      },
+      {
+        path: '/calculationFormula',
+        name: 'calculationFormula',
+        component: ()=>import("../views/operationSystem/calculationFormula"),
+        meta: { title: '计算公式', path: '/calculationFormula' }
+      },
+      {
+        path: '/calculationFormulaDetal',
+        name: 'calculationFormulaDetal',
+        component: ()=>import("../views/operationSystem/calculationFormula/calculationFormulaDetal.vue"),
+        meta: { title: '计算公式', path: '/calculationFormulaDetal' }
       }
       /* ------------------------- */
     ]
