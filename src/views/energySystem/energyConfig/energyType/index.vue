@@ -1,6 +1,7 @@
 <template>
   <div class="index" style="position: relative">
     <el-button type="text" @click="handleFullScreen" style="z-index: 9999; position: absolute; right: 5%;top: 1%;">切换全屏</el-button>
+<div class="index">
     <div class="main-wrap" id="mainWrap">
       <!--表头部分-->
       <div class="screen-title set-flex">
@@ -382,6 +383,7 @@ export default {
   position: relative;
   overflow: hidden;
 }
+
 .screen-title {
   height: 8%;
   width: 100%;
