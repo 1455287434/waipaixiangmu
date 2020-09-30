@@ -7,6 +7,8 @@ import 'element-ui/lib/theme-chalk/index.css'
 import '@/styles/base.scss'
 import '@/iconfont/iconfont.css'
 import '@/util/routerIntercept'
+import echarts from 'echarts'
+Vue.prototype.$echarts = echarts
 Vue.config.productionTip = false
 Vue.use(ElementUI)
 new Vue({

@@ -63,7 +63,12 @@ const routes = [
         component: equipmentSystem,
         meta: { title: '设备系统', path: '/equipmentSystem' }
       },
-
+      {
+        path: '/accountManagement',
+        name: 'accountManagement',
+        component: ()=>import("../views/equipmentSystem/accountManagement/equipment"),
+        meta: { title: '设备系统', path: '/equipmentSystem' }
+      },
       /* ------------------------- */
       /* ------------运维系统------------- */
       {
