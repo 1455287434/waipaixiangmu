@@ -18,16 +18,13 @@
         </div>
         <div class="table-wrap">
             <el-table border :data="tableData" stripe @selection-change="handleSelectionChange" style="width: 100%">
-                <el-table-column type="selection" width="55">
-                </el-table-column>
+                <el-table-column type="selection" width="55"> </el-table-column>
                 <el-table-column prop="date" label="名称" width="180">
                 </el-table-column>
                 <el-table-column prop="name" label="参数" width="180">
                 </el-table-column>
-                <el-table-column prop="address" label="表达式">
-                </el-table-column>
-                <el-table-column prop="address" label="备注">
-                </el-table-column>
+                <el-table-column prop="address" label="表达式"> </el-table-column>
+                <el-table-column prop="address" label="备注"> </el-table-column>
                 <el-table-column prop="address" label="状态">
                     <template slot-scope="scope">
                         <el-tag size="mini" effect="dark">正常</el-tag>
@@ -71,7 +68,9 @@
 <script>
 export default {
     <<
-    << << < HEAD
+    <<
+    <<
+    < HEAD
     name: 'index',
     data() {
         return {
@@ -96,7 +95,8 @@ export default {
                 address: '上海市普陀区金沙江路 1516 弄'
             }]
         } ===
-        === =
+        ===
+        =
         name: 'index',
             data() {
                 return {
@@ -208,11 +208,12 @@ export default {
                 resetForm(formName) {
                     this.$refs[formName].resetFields()
                     this.dialogVisible = false >>>
-                        >>> > 3 ba1e10db04036c9d681699c03c38e91f8cea2b8
+                        >>>
+                        >
+                        3 ba1e10db04036c9d681699c03c38e91f8cea2b8
                 }
             }
 </script>
 
 <style scoped>
-
 </style>
