@@ -57,28 +57,90 @@
     </div>
     <!--新增-->
 
-    <!--<el-dialog :title="title" :visible.sync="dialogVisible" top="10vh" width="700px">
-        <div>
-            <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px">
-                <el-form-item label="名称" prop="name">
-                    <el-input v-model="ruleForm.name"></el-input>
-                </el-form-item>
-                <el-form-item label="参数" prop="name">
-                    <el-input v-model="ruleForm.name"></el-input>
-                </el-form-item>
-                <el-form-item label="表达式" prop="name">
-                    <el-input v-model="ruleForm.name"></el-input>
-                </el-form-item>
-                <el-form-item label="备注" prop="desc">
-                    <el-input type="textarea" v-model="ruleForm.desc"></el-input>
-                </el-form-item>
-            </el-form>
+    <el-dialog
+      :title="title"
+      :visible.sync="dialogVisible"
+      top="10vh"
+      width="1200px"
+    >
+      <div class="main-wrap">
+        <div class="auto-num">
+          <el-row :gutter="20">
+            <el-col :span="10">
+              <div>
+                <div
+                  style="
+                    display: inline-block;
+                    vertical-align: top;
+                    margin-left: 20px;
+                    margin-right: 25px;
+                  "
+                >
+                  变量名
+                </div>
+                <div style="display: inline-block">
+                  <el-cascader-panel :options="options"></el-cascader-panel>
+                </div>
+              </div>
+            </el-col>
+            <el-col :span="10">
+              <div class="Tips">
+                *提示：只支持
+                <span class="mg-6 mg-l-6">+</span>
+                <span class="mg-6">-</span>
+                <span class="mg-6">*</span>
+                <span class="mg-6">/</span>
+                <span class="mg-6">%</span>
+                <span class="mg-6">^2</span>
+                <span class="mg-6">()</span>
+                运算符。 <span class="mg-6 mg-l-6">否则无效</span>
+              </div>
+
+              <div class="text-inp">
+                <el-input
+                  type="textarea"
+                  :autosize="{ minRows: 6, maxRows: 10 }"
+                  placeholder="请输入内容"
+                  v-model="textarea2"
+                  resize="none"
+                >
+                </el-input>
+                <div class="pos-r">
+                  <span class="mg-6 mg-l-6"> =</span>
+                  <div style="display: inline-block; width: 150px">
+                    <el-input v-model="value2" placeholder="公式名"></el-input>
+                  </div>
+                </div>
+              </div>
+            </el-col>
+          </el-row>
+          <el-row :gutter="20">
+            <el-col :span="20">
+              <div style="margin-left: 40px; margin-top: 40px">
+                <span style="vertical-align: top; margin-right: 20px"
+                  >备注</span
+                >
+                <div style="display: inline-block; width: 77%">
+                  <el-input
+                    type="textarea"
+                    :autosize="{ minRows: 6, maxRows: 10 }"
+                    placeholder="请输入内容"
+                    v-model="textarea2"
+                  >
+                  </el-input>
+                </div>
+              </div>
+            </el-col>
+          </el-row>
         </div>
-        <div slot="footer" class="dialog-footer">
-            <el-button @click="resetForm('ruleForm')">取 消</el-button>
-            <el-button type="primary" @click="submitForm('ruleForm')">确 定</el-button>
-        </div>
-    </el-dialog>-->
+        <div style="overflow:hidden">
+          <span slot="footer" class="btnsun">
+            <el-button @click="dialogVisible = false">取 消</el-button>
+            <el-button type="primary" @click="btnFunc">确 定</el-button>
+          </span>
+        </div> 
+      </div>
+    </el-dialog>
   </div>
 </template>
 
@@ -87,6 +149,83 @@ export default {
   name: "index",
   data() {
     return {
+      value2: "",
+      textarea2: "",
+      options: [
+        {
+          value: "pvc1",
+          label: "pvc1",
+          children: [
+            {
+              value: "pvc1-1",
+              label: "pvc1-1",
+              disabled: true,
+            },
+            {
+              value: "pvc1-2",
+              label: "pvc1-2",
+              disabled: true,
+            },
+          ],
+        },
+        {
+          value: "pvc2",
+          label: "pvc2",
+          children: [
+            {
+              value: "pvc2-1",
+              label: "pvc2-1",
+              disabled: true,
+            },
+            {
+              value: "pvc2-2",
+              label: "pvc2-2",
+              disabled: true,
+            },
+            {
+              value: "pvc2-3",
+              label: "pvc2-3",
+              disabled: true,
+            },
+            {
+              value: "pvc2-4",
+              label: "pvc2-4",
+              disabled: true,
+            },
+            {
+              value: "pvc2-5",
+              label: "pvc2-5",
+              disabled: true,
+            },
+            {
+              value: "pvc2-6",
+              label: "pvc2-6",
+              disabled: true,
+            },
+          ],
+        },
+        {
+          value: "pvc3",
+          label: "pvc3",
+          children: [
+            {
+              value: "pvc3-1",
+              label: "pvc3-1",
+              disabled: true,
+            },
+            {
+              value: "pvc3-2",
+              label: "pvc3-2",
+              disabled: true,
+            },
+            {
+              value: "pvc3-3",
+              label: "pvc3-3",
+              disabled: true,
+            },
+          ],
+        },
+      ],
       dialogVisible: false,
       title: "新增",
       selectForm: {
@@ -142,15 +281,17 @@ export default {
     },
     // 添加方法
     addFn(type) {
-    //   this.dialogVisible = !this.dialogVisible;
+      //   this.dialogVisible = !this.dialogVisible;
       if (type === "add") {
-        // this.title = "新增";
-        this.$router.push("/calculationFormulaDetal")
-
+        this.title = "新增";
+        this.dialogVisible = true;
       } else {
-        // this.title = "修改";
-         this.$router.push("/calculationFormulaDetal?flag=update")
+        this.title = "修改";
+        this.dialogVisible = true;
       }
+    },
+    btnFunc() {
+      this.flagFunc();
     },
     // 添加校验
     submitForm(formName) {
@@ -163,6 +304,23 @@ export default {
         }
       });
       this.dialogVisible = false;
+    },
+    flagFunc() {
+      if (this.title == "新增") {
+        // 新增的请求接口写在这里
+        this.$message({
+          type: "success",
+          message: "添加成功!",
+        });
+        this.dialogVisible = false;
+      } else {
+        // 修改的请求接口写在这里
+        this.$message({
+          type: "success",
+          message: "修改成功!",
+        });
+        this.dialogVisible = false;
+      }
     },
     // 添加，修改函数
     submitFn() {},
@@ -210,4 +368,42 @@ export default {
 </script>
 
 <style scoped>
+.btn-offset {
+  position: fixed;
+  right: 50px;
+  bottom: 100px;
+}
+.auto-num {
+  margin-top: 50px;
+}
+.Tips {
+  color: red;
+  white-space: pre;
+}
+.mg-6 {
+  margin-right: 20px;
+}
+.mg-l-6 {
+  margin-left: 20px;
+}
+.text-inp {
+  margin-top: 30px;
+  width: 300px;
+  position: relative;
+}
+.pos-r {
+  width: 200px;
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.dialog-footer {
+  float: right;
+}
+.btnsun {
+  margin-top: 20px;
+  text-align: right;
+  float: right;
+}
 </style>

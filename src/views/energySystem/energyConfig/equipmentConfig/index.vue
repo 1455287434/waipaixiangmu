@@ -702,7 +702,7 @@ export default {
               borderColor: 'rgba(0, 0, 0, 0.2)'
             },
             emphasis: {
-              areaColor: 'red',
+              areaColor: "#43229e",
               shadowOffsetX: 0,
               shadowOffsetY: 0,
               shadowBlur: 20,
