@@ -3,7 +3,7 @@
     <el-button
       type="text"
       @click="handleFullScreen"
-      style="z-index: 9999; position: absolute; right: 5%; top: 1%"
+      style="z-index: 9999; position: absolute; right: 5%; top: 3%"
       >切换全屏</el-button
     >
     <div class="main-wrap" id="mainWrap">
@@ -153,310 +153,310 @@
 </template>
 
 <script>
-import "../../../../../node_modules/echarts/map/js/china";
+import '../../../../../node_modules/echarts/map/js/china'
 
-function randomValue() {
-  return Math.round(Math.random() * 1000);
+function randomValue () {
+  return Math.round(Math.random() * 1000)
 }
 
-function formatter(number) {
-  const numbers = number.toString().split("").reverse();
-  const segs = [];
-  while (numbers.length) segs.push(numbers.splice(0, 3).join(""));
-  return segs.join(",").split("").reverse().join("");
+function formatter (number) {
+  const numbers = number.toString().split('').reverse()
+  const segs = []
+  while (numbers.length) segs.push(numbers.splice(0, 3).join(''))
+  return segs.join(',').split('').reverse().join('')
 }
 export default {
-  name: "index",
-  data() {
+  name: 'index',
+  data () {
     return {
       itemHeight: 100,
       chart: null,
       fullscreen: false,
-      imgList:[
-        "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1404893036,232675685&fm=26&gp=0.jpg",
-        "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1601476406792&di=b0e0b06652498665e5cc2380b804077d&imgtype=0&src=http%3A%2F%2Fimg008.hc360.cn%2Fm8%2FM04%2F6D%2FC2%2FwKhQplVa8SmEMW76AAAAAAv055s509.jpg",
-        "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1601476406791&di=209229a1b01bd1579506730d48c23b5a&imgtype=0&src=http%3A%2F%2Fpic25.nipic.com%2F20121129%2F8221764_211711437173_2.jpg",
-        "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1601476406791&di=31c259efe445dc2b659139ca0e293ba7&imgtype=0&src=http%3A%2F%2Fpic14.nipic.com%2F20110428%2F7024288_110959274175_2.jpg",
-        
+      imgList: [
+        'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1404893036,232675685&fm=26&gp=0.jpg',
+        'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1601476406792&di=b0e0b06652498665e5cc2380b804077d&imgtype=0&src=http%3A%2F%2Fimg008.hc360.cn%2Fm8%2FM04%2F6D%2FC2%2FwKhQplVa8SmEMW76AAAAAAv055s509.jpg',
+        'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1601476406791&di=209229a1b01bd1579506730d48c23b5a&imgtype=0&src=http%3A%2F%2Fpic25.nipic.com%2F20121129%2F8221764_211711437173_2.jpg',
+        'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1601476406791&di=31c259efe445dc2b659139ca0e293ba7&imgtype=0&src=http%3A%2F%2Fpic14.nipic.com%2F20110428%2F7024288_110959274175_2.jpg'
+
       ],
       config: {
-        header: ["公司名", "接入设备", "在线设备"],
+        header: ['公司名', '接入设备', '在线设备'],
         data: [
-          ["行1列1", "2", "2"],
-          ["行2列1", "34", "23"],
-          ["行3列1", "42", "32"],
-          ["行4列1", "3", "2"],
-          ["行5列1", "543", "32"],
-          ["行6列1", "123", "43"],
-          ["行7列1", "65", "22"],
-          ["行8列1", "1", "1"],
-          ["行9列1", "43", "32"],
-          ["行10列1", "22", "13"],
-        ],
-        columnWidth: 20,
+          ['浙江银丰自动化科技有限公司', '2', '2'],
+          ['青岛至诚恒业自动化设备有限公司', '34', '23'],
+          ['青岛欧开智能系统有限公司', '42', '32'],
+          ['青岛海淘众诚电子商务有限公司', '3', '2'],
+          ['青岛天枢智能有限公司', '543', '32'],
+          ['青岛浩科科技有限公司', '123', '43'],
+          ['青岛纺织机械有限公司', '65', '22'],
+          ['青岛中威环保设备有限公司', '1', '1'],
+          ['广东瑞恩科技有限公司', '43', '32'],
+          ['广东思为客科技股份有限公司', '22', '13']
+        ]
+        // columnWidth: [120, 0, 0]
       },
       configSB: {
         data: [
           {
-            name: "设备接入数",
-            value: 12475,
-          },
+            name: '设备接入数',
+            value: 12475
+          }
         ],
         lineWidth: 10,
-        radius: "50%",
+        radius: '50%',
         showOriginValue: true,
-        activeRadius: "82%",
-        color: ["#eab469"],
+        activeRadius: '82%',
+        color: ['#eab469']
       },
       numConfig: {
         number: [123456],
-        content: "{nt}",
-        formatter,
+        content: '{nt}',
+        formatter
       },
       numConfig1: {
         number: [432423123],
-        content: "{nt}",
-        formatter,
+        content: '{nt}',
+        formatter
       },
       numConfig2: {
         number: [123456],
-        content: "{nt}",
-        formatter,
-      },
-    };
+        content: '{nt}',
+        formatter
+      }
+    }
   },
-  mounted() {
-    let self = this
-    this.chinaConfigure();
-    this.drawPieSB();
-    this.drawPieKH();
-    this.drawPieYH();
-    this.drawBar();
-    this.drawLine();
-    // this.handleFullScreen()
-    self.itemHeight = (document.getElementById("swpper").offsetHeight - 40) + 'px';
-    window.addEventListener("resize", function () {
-      self.itemHeight = (document.getElementById("swpper").offsetHeight - 40) + 'px';
-    });
+  mounted () {
+    const self = this
+    this.chinaConfigure()
+    this.drawPieSB()
+    this.drawPieKH()
+    this.drawPieYH()
+    this.drawBar()
+    this.drawLine()
+    this.handleFullScreen()
+    self.itemHeight = (document.getElementById('swpper').offsetHeight - 40) + 'px'
+    window.addEventListener('resize', function () {
+      self.itemHeight = (document.getElementById('swpper').offsetHeight - 40) + 'px'
+    })
   },
 
-  beforeDestroy() {
+  beforeDestroy () {
     if (!this.chart) {
-      return;
+      return
     }
-    this.chart.dispose();
-    this.chart = null;
+    this.chart.dispose()
+    this.chart = null
   },
   methods: {
     // 全屏事件
-    handleFullScreen() {
-      const element = document.getElementById("mainWrap");
+    handleFullScreen () {
+      const element = document.getElementById('mainWrap')
       if (element.requestFullscreen) {
-        element.requestFullscreen();
+        element.requestFullscreen()
       } else if (element.webkitRequestFullScreen) {
-        element.webkitRequestFullScreen();
+        element.webkitRequestFullScreen()
       } else if (element.mozRequestFullScreen) {
-        element.mozRequestFullScreen();
+        element.mozRequestFullScreen()
       } else if (element.msRequestFullscreen) {
         // IE11
-        element.msRequestFullscreen();
+        element.msRequestFullscreen()
       }
-      this.fullscreen = !this.fullscreen;
+      this.fullscreen = !this.fullscreen
     },
-    drawPieSB() {
+    drawPieSB () {
       // 基于准备好的dom，初始化echarts实例
-      const myChart = this.$echarts.init(document.getElementById("myChart"));
+      const myChart = this.$echarts.init(document.getElementById('myChart'))
       // 绘制图表
       myChart.setOption({
         grid: {
-          left: "0",
-          right: "0",
-          bottom: "10%",
-          top: "0",
+          left: '0',
+          right: '0',
+          bottom: '10%',
+          top: '0'
         },
-        color: ["#fd7f56"],
+        color: ['#fd7f56'],
         series: [
           {
-            name: "",
-            type: "pie",
-            radius: ["70%", "90%"],
+            name: '',
+            type: 'pie',
+            radius: ['60%', '70%'],
             avoidLabelOverlap: true,
             label: {
               formatter: function (param) {
-                var view = "设备接入数\r\n" + "\r\n" + 12343;
-                return view;
+                var view = '设备接入数\r\n' + '\r\n' + 12343
+                return view
               },
               textStyle: {
                 fontSize: 16,
-                color: "#FF7F50",
+                color: '#FF7F50'
               },
               show: true,
-              position: "center",
-              fontSize: "16",
+              position: 'center',
+              fontSize: '16'
             },
-            data: [{ value: 12343, name: "设备接入数" }],
-          },
-        ],
-      });
-      const chartsHeight = document.getElementById("pieSB").offsetHeight;
-      myChart.resize({ height: chartsHeight });
-      window.addEventListener("resize", function () {
-        const chartsHeight = document.getElementById("pieSB").offsetHeight;
-        myChart.resize({ height: chartsHeight });
-      });
+            data: [{ value: 12343, name: '设备接入数' }]
+          }
+        ]
+      })
+      const chartsHeight = document.getElementById('pieSB').offsetHeight
+      myChart.resize({ height: chartsHeight })
+      window.addEventListener('resize', function () {
+        const chartsHeight = document.getElementById('pieSB').offsetHeight
+        myChart.resize({ height: chartsHeight })
+      })
     },
-    drawPieKH() {
+    drawPieKH () {
       // 基于准备好的dom，初始化echarts实例
-      const myChart = this.$echarts.init(document.getElementById("chartKH"));
+      const myChart = this.$echarts.init(document.getElementById('chartKH'))
       // 绘制图表
       myChart.setOption({
         grid: {
-          left: "0",
-          right: "0",
-          bottom: "10%",
-          top: "0",
+          left: '0',
+          right: '0',
+          bottom: '10%',
+          top: '0'
         },
-        color: ["#31cefd"],
+        color: ['#31cefd'],
         series: [
           {
-            name: "访问来源",
-            type: "pie",
-            radius: ["70%", "90%"],
+            name: '访问来源',
+            type: 'pie',
+            radius: ['60%', '70%'],
             avoidLabelOverlap: true,
             label: {
               formatter: function (param) {
-                var view = "客户数\r\n" + "\r\n" + 321;
-                return view;
+                var view = '客户数\r\n' + '\r\n' + 321
+                return view
               },
               textStyle: {
                 fontSize: 16,
-                color: "#31cefd",
+                color: '#31cefd'
               },
               show: true,
-              position: "center",
-              fontSize: "16",
+              position: 'center',
+              fontSize: '16'
             },
-            data: [{ value: 12343, name: "设备接入数" }],
-          },
-        ],
-      });
-      const chartsHeight = document.getElementById("pieSB").offsetHeight;
-      myChart.resize({ height: chartsHeight });
-      window.addEventListener("resize", function () {
-        const chartsHeight = document.getElementById("pieSB").offsetHeight;
-        myChart.resize({ height: chartsHeight });
-      });
+            data: [{ value: 12343, name: '设备接入数' }]
+          }
+        ]
+      })
+      const chartsHeight = document.getElementById('pieSB').offsetHeight
+      myChart.resize({ height: chartsHeight })
+      window.addEventListener('resize', function () {
+        const chartsHeight = document.getElementById('pieSB').offsetHeight
+        myChart.resize({ height: chartsHeight })
+      })
     },
-    drawPieYH() {
+    drawPieYH () {
       // 基于准备好的dom，初始化echarts实例
-      const myChart = this.$echarts.init(document.getElementById("chartYH"));
+      const myChart = this.$echarts.init(document.getElementById('chartYH'))
       // 绘制图表
       myChart.setOption({
         grid: {
-          left: "0",
-          right: "0",
-          bottom: "10%",
-          top: "0",
+          left: '0',
+          right: '0',
+          bottom: '10%',
+          top: '0'
         },
-        color: ["#23d28e"],
+        color: ['#23d28e'],
         series: [
           {
-            name: "访问来源",
-            type: "pie",
-            radius: ["70%", "90%"],
+            name: '访问来源',
+            type: 'pie',
+            radius: ['60%', '70%'],
             avoidLabelOverlap: true,
             label: {
               formatter: function (param) {
-                var view = "用户数\r\n" + "\r\n" + 543;
-                return view;
+                var view = '用户数\r\n' + '\r\n' + 543
+                return view
               },
               textStyle: {
                 fontSize: 16,
-                color: "#23d28e",
+                color: '#23d28e'
               },
               show: true,
-              position: "center",
-              fontSize: "16",
+              position: 'center',
+              fontSize: '16'
             },
-            data: [{ value: 12343, name: "设备接入数" }],
-          },
-        ],
-      });
-      const chartsHeight = document.getElementById("pieSB").offsetHeight;
-      myChart.resize({ height: chartsHeight });
-      window.addEventListener("resize", function () {
-        const chartsHeight = document.getElementById("pieSB").offsetHeight;
-        myChart.resize({ height: chartsHeight });
-      });
+            data: [{ value: 12343, name: '设备接入数' }]
+          }
+        ]
+      })
+      const chartsHeight = document.getElementById('pieSB').offsetHeight
+      myChart.resize({ height: chartsHeight })
+      window.addEventListener('resize', function () {
+        const chartsHeight = document.getElementById('pieSB').offsetHeight
+        myChart.resize({ height: chartsHeight })
+      })
     },
-    drawLine() {
+    drawLine () {
       // 基于准备好的dom，初始化echarts实例
-      const myChart = this.$echarts.init(document.getElementById("lineChart"));
+      const myChart = this.$echarts.init(document.getElementById('lineChart'))
       // 绘制图表
       myChart.setOption({
         tooltip: {
-          trigger: "axis",
+          trigger: 'axis',
           axisPointer: {
-            type: "cross",
+            type: 'cross',
             label: {
-              backgroundColor: "#6a7985",
-            },
-          },
+              backgroundColor: '#6a7985'
+            }
+          }
         },
         legend: {
-          x: "left",
-          top: "10%",
+          x: 'left',
+          top: '10%',
           textStyle: {
-            color: "#fffff",
+            color: '#fffff'
           },
-          data: ["本月产量", "上月产量", "总产量"],
+          data: ['本月产量', '上月产量', '总产量']
         },
         grid: {
-          left: "5%",
-          right: "10%",
-          bottom: "8%",
-          containLabel: true,
+          left: '5%',
+          right: '10%',
+          bottom: '8%',
+          containLabel: true
         },
         xAxis: [
           {
-            type: "category",
+            type: 'category',
             boundaryGap: false,
-            data: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
+            data: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
             axisLabel: {
               textStyle: {
-                color: "#fff",
-              },
-            },
-          },
+                color: '#fff'
+              }
+            }
+          }
         ],
         yAxis: [
           {
-            type: "value",
+            type: 'value',
             axisLabel: {
               textStyle: {
-                color: "#fff",
-              },
-            },
-          },
+                color: '#fff'
+              }
+            }
+          }
         ],
         series: [
           {
-            name: "本月产量",
-            type: "line",
-            stack: "总量",
+            name: '本月产量',
+            type: 'line',
+            stack: '总量',
             data: [120, 132, 800, 134, 90, 230, 210, 132, 800, 134],
             itemStyle: {
               normal: {
-                color: "rgba(35,174,229,0.5)",
+                color: 'rgba(35,174,229,0.5)',
                 lineStyle: {
-                  color: "#614f96",
-                  width: 1,
-                },
-              },
+                  color: '#614f96',
+                  width: 1
+                }
+              }
             },
             areaStyle: {
               color: {
-                type: "linear",
+                type: 'linear',
                 x: 0,
                 y: 0,
                 x2: 0,
@@ -464,38 +464,38 @@ export default {
                 colorStops: [
                   {
                     offset: 0,
-                    color: "rgba(35,174,229,1)", // 0% 处的颜色
+                    color: 'rgba(35,174,229,1)' // 0% 处的颜色
                   },
                   {
                     offset: 0.5,
-                    color: "rgba(35,174,229,0.8)", // 100% 处的颜色
+                    color: 'rgba(35,174,229,0.8)' // 100% 处的颜色
                   },
                   {
                     offset: 1,
-                    color: "rgba(35,174,229,0.6)", // 100% 处的颜色
-                  },
+                    color: 'rgba(35,174,229,0.6)' // 100% 处的颜色
+                  }
                 ],
-                global: false, // 缺省为 false
-              },
-            },
+                global: false // 缺省为 false
+              }
+            }
           },
           {
-            name: "上月产量",
-            type: "line",
-            stack: "总量",
+            name: '上月产量',
+            type: 'line',
+            stack: '总量',
             data: [120, 132, 800, 134, 1000, 230, 210, 800, 134, 90],
             itemStyle: {
               normal: {
-                color: "rgba(179,127,235,0.5)",
+                color: 'rgba(179,127,235,0.5)',
                 lineStyle: {
-                  color: "#198bbe",
-                  width: 1,
-                },
-              },
+                  color: '#198bbe',
+                  width: 1
+                }
+              }
             },
             areaStyle: {
               color: {
-                type: "linear",
+                type: 'linear',
                 x: 0,
                 y: 0,
                 x2: 0,
@@ -503,38 +503,38 @@ export default {
                 colorStops: [
                   {
                     offset: 0,
-                    color: "rgba(12,127,235,1)", // 0% 处的颜色
+                    color: 'rgba(12,127,235,1)' // 0% 处的颜色
                   },
                   {
                     offset: 0.5,
-                    color: "rgba(33,127,235,0.8)", // 100% 处的颜色
+                    color: 'rgba(33,127,235,0.8)' // 100% 处的颜色
                   },
                   {
                     offset: 1,
-                    color: "rgba(123,127,235,0.6)", // 100% 处的颜色
-                  },
+                    color: 'rgba(123,127,235,0.6)' // 100% 处的颜色
+                  }
                 ],
-                global: false, // 缺省为 false
-              },
-            },
+                global: false // 缺省为 false
+              }
+            }
           },
           {
-            name: "总产量",
-            type: "line",
-            stack: "总量",
+            name: '总产量',
+            type: 'line',
+            stack: '总量',
             data: [150, 232, 200, 154, 190, 330, 410, 150, 232, 200],
             itemStyle: {
               normal: {
-                color: "rgba(179,127,235,0.5)",
+                color: 'rgba(179,127,235,0.5)',
                 lineStyle: {
-                  color: "#198bbe",
-                  width: 1,
-                },
-              },
+                  color: '#198bbe',
+                  width: 1
+                }
+              }
             },
             areaStyle: {
               color: {
-                type: "linear",
+                type: 'linear',
                 x: 0,
                 y: 0,
                 x2: 0,
@@ -542,235 +542,235 @@ export default {
                 colorStops: [
                   {
                     offset: 0,
-                    color: "rgba(142,127,235,1)", // 0% 处的颜色
+                    color: 'rgba(142,127,235,1)' // 0% 处的颜色
                   },
                   {
                     offset: 0.5,
-                    color: "rgba(163,127,235,.8)", // 100% 处的颜色
+                    color: 'rgba(163,127,235,.8)' // 100% 处的颜色
                   },
                   {
                     offset: 1,
-                    color: "rgba(132,127,235,.6)", // 100% 处的颜色
-                  },
+                    color: 'rgba(132,127,235,.6)' // 100% 处的颜色
+                  }
                 ],
-                global: false, // 缺省为 false
-              },
-            },
-          },
-        ],
-      });
-      const chartsHeight = document.getElementById("lineChartWrap")
-        .offsetHeight;
-      myChart.resize({ height: chartsHeight });
-      window.addEventListener("resize", function () {
-        const chartsHeight = document.getElementById("lineChartWrap")
-          .offsetHeight;
-        myChart.resize({ height: chartsHeight });
-      });
+                global: false // 缺省为 false
+              }
+            }
+          }
+        ]
+      })
+      const chartsHeight = document.getElementById('lineChartWrap')
+        .offsetHeight
+      myChart.resize({ height: chartsHeight })
+      window.addEventListener('resize', function () {
+        const chartsHeight = document.getElementById('lineChartWrap')
+          .offsetHeight
+        myChart.resize({ height: chartsHeight })
+      })
     },
-    drawBar() {
+    drawBar () {
       // 基于准备好的dom，初始化echarts实例
-      const myChart = this.$echarts.init(document.getElementById("barChart"));
+      const myChart = this.$echarts.init(document.getElementById('barChart'))
       // 绘制图表
       myChart.setOption({
         xAxis: {
-          type: "category",
-          data: ["北京", "上海", "天津", "广州", "深圳", "南京", "沈阳"],
+          type: 'category',
+          data: ['北京', '上海', '天津', '广州', '深圳', '南京', '沈阳'],
           axisLabel: {
             textStyle: {
-              color: "#fff",
-            },
-          },
+              color: '#fff'
+            }
+          }
         },
         yAxis: {
-          type: "value",
+          type: 'value',
           show: false,
           axisLine: {
-            show: false,
-          },
+            show: false
+          }
         },
-        color: ["#1bed23"],
+        color: ['#1bed23'],
         series: [
           {
             data: [120, 200, 321, 54, 34, 131, 23],
-            type: "bar",
+            type: 'bar',
             label: {
               show: true, // 开启显示
               // rotate: 70, // 旋转70度
-              position: "top", // 在上方显示
+              position: 'top', // 在上方显示
               distance: 20, // 距离图形元素的距离。当 position 为字符描述值（如 'top'、'insideRight'）时候有效。
-              verticalAlign: "middle",
+              verticalAlign: 'middle',
               textStyle: {
                 // 数值样式
-                color: "#ffff",
-                fontSize: 12,
+                color: '#ffff',
+                fontSize: 12
               },
               itemStyle: {
                 normal: {
-                  color: "#dddd",
-                },
+                  color: '#dddd'
+                }
               },
-              borderColor: "#dsadwe",
+              borderColor: '#dsadwe'
             },
             itemStyle: {
               normal: {
                 color: new this.$echarts.graphic.LinearGradient(0, 0, 0, 1, [
                   {
                     offset: 0,
-                    color: "#1b9ace",
+                    color: '#1b9ace'
                   },
                   {
                     offset: 1,
-                    color: "#14618f",
-                  },
-                ]),
-              },
-            },
-          },
-        ],
-      });
-      const chartsHeight = document.getElementById("barChartWrap").offsetHeight;
-      myChart.resize({ height: chartsHeight });
-      window.addEventListener("resize", function () {
-        const chartsHeight = document.getElementById("barChartWrap")
-          .offsetHeight;
-        myChart.resize({ height: chartsHeight });
-      });
+                    color: '#14618f'
+                  }
+                ])
+              }
+            }
+          }
+        ]
+      })
+      const chartsHeight = document.getElementById('barChartWrap').offsetHeight
+      myChart.resize({ height: chartsHeight })
+      window.addEventListener('resize', function () {
+        const chartsHeight = document.getElementById('barChartWrap')
+          .offsetHeight
+        myChart.resize({ height: chartsHeight })
+      })
     },
 
     // 地图
-    chinaConfigure() {
-      console.log(this.userJson);
-      let myChart = this.$echarts.init(this.$refs.myEchart); //这里是为了获得容器所在位置
+    chinaConfigure () {
+      console.log(this.userJson)
+      const myChart = this.$echarts.init(this.$refs.myEchart) // 这里是为了获得容器所在位置
       // window.onresize = myChart.resize;
       myChart.setOption({
         // 进行相关配置
         // backgroundColor: "#02AFDB",
         tooltip: {
-          backgroundColor: "#4169E1",
+          backgroundColor: '#4169E1'
         }, // 鼠标移到图里面的浮动提示框
         emphasis: {
           itemStyle: {
             // 高亮时点的颜色
-            color: "red",
+            color: 'red'
           },
           label: {
-            show: true,
+            show: true
             // 高亮时标签的文字
-          },
+          }
         },
 
         label: {
           show: true,
 
-          //fontWeight:'bold',
-          color: "#fff",
+          // fontWeight:'bold',
+          color: '#fff'
         },
 
         dataRange: {
           show: false,
           min: 0,
           max: 1000,
-          text: ["High", "Low"],
+          text: ['High', 'Low'],
           realtime: true,
           calculable: true,
-          color: ["#093a79", "#093a79", "#093a79"],
+          color: ['#093a79', '#093a79', '#093a79']
         },
         geo: {
           // 这个是重点配置区
-          map: "china", // 表示中国地图
+          map: 'china', // 表示中国地图
           roam: true,
 
           label: {
             normal: {
               show: true, // 是否显示对应地名
               textStyle: {
-                color: "#f0f2f5",
+                color: '#f0f2f5',
                 fontSize: 10,
-                fontFamily: "Arial",
-              },
+                fontFamily: 'Arial'
+              }
             },
             emphasis: {
-              //动态展示的样式
-              color: "#43d0d6",
+              // 动态展示的样式
+              color: '#43d0d6',
               fontSize: 10,
-              fontFamily: "Arial",
-            },
+              fontFamily: 'Arial'
+            }
           },
           itemStyle: {
             normal: {
-              borderColor: "rgba(0, 0, 0, 0.2)",
+              borderColor: 'rgba(0, 0, 0, 0.2)'
             },
             emphasis: {
-              areaColor: "red",
+              areaColor: 'red',
               shadowOffsetX: 0,
               shadowOffsetY: 0,
               shadowBlur: 20,
               borderWidth: 0,
-              shadowColor: "rgba(0, 0, 0, 0.5)",
-            },
-          },
+              shadowColor: 'rgba(0, 0, 0, 0.5)'
+            }
+          }
         },
         series: [
           {
-            type: "scatter",
+            type: 'scatter',
 
-            coordinateSystem: "geo", // 对应上方配置
+            coordinateSystem: 'geo' // 对应上方配置
           },
 
           {
-            name: "启动次数", // 浮动框的标题
-            type: "map",
+            name: '启动次数', // 浮动框的标题
+            type: 'map',
             geoIndex: 0,
             data: [
-              { name: "南海诸岛", value: 0 },
-              { name: "北京", value: randomValue() },
-              { name: "天津", value: randomValue() },
-              { name: "上海", value: randomValue() },
-              { name: "重庆", value: randomValue() },
-              { name: "河北", value: randomValue() },
-              { name: "河南", value: randomValue() },
-              { name: "云南", value: randomValue() },
-              { name: "辽宁", value: randomValue() },
-              { name: "黑龙江", value: randomValue() },
-              { name: "湖南", value: randomValue() },
-              { name: "安徽", value: randomValue() },
-              { name: "山东", value: randomValue() },
-              { name: "新疆", value: randomValue() },
-              { name: "江苏", value: randomValue() },
-              { name: "浙江", value: randomValue() },
-              { name: "江西", value: randomValue() },
-              { name: "湖北", value: randomValue() },
-              { name: "广西", value: randomValue() },
-              { name: "甘肃", value: randomValue() },
-              { name: "山西", value: randomValue() },
-              { name: "内蒙古", value: randomValue() },
-              { name: "陕西", value: randomValue() },
-              { name: "吉林", value: randomValue() },
-              { name: "福建", value: randomValue() },
-              { name: "贵州", value: randomValue() },
-              { name: "广东", value: randomValue() },
-              { name: "青海", value: randomValue() },
-              { name: "西藏", value: randomValue() },
-              { name: "四川", value: randomValue() },
-              { name: "宁夏", value: randomValue() },
-              { name: "海南", value: randomValue() },
-              { name: "台湾", value: randomValue() },
-              { name: "香港", value: randomValue() },
-              { name: "澳门", value: randomValue() },
-            ],
-          },
-        ],
-      });
-      const chartsHeight = document.getElementById("map").offsetHeight;
-      myChart.resize({ height: chartsHeight });
-      window.addEventListener("resize", function () {
-        const chartsHeight = document.getElementById("map").offsetHeight;
-        myChart.resize({ height: chartsHeight });
-      });
-    },
-  },
-};
+              { name: '南海诸岛', value: 0 },
+              { name: '北京', value: randomValue() },
+              { name: '天津', value: randomValue() },
+              { name: '上海', value: randomValue() },
+              { name: '重庆', value: randomValue() },
+              { name: '河北', value: randomValue() },
+              { name: '河南', value: randomValue() },
+              { name: '云南', value: randomValue() },
+              { name: '辽宁', value: randomValue() },
+              { name: '黑龙江', value: randomValue() },
+              { name: '湖南', value: randomValue() },
+              { name: '安徽', value: randomValue() },
+              { name: '山东', value: randomValue() },
+              { name: '新疆', value: randomValue() },
+              { name: '江苏', value: randomValue() },
+              { name: '浙江', value: randomValue() },
+              { name: '江西', value: randomValue() },
+              { name: '湖北', value: randomValue() },
+              { name: '广西', value: randomValue() },
+              { name: '甘肃', value: randomValue() },
+              { name: '山西', value: randomValue() },
+              { name: '内蒙古', value: randomValue() },
+              { name: '陕西', value: randomValue() },
+              { name: '吉林', value: randomValue() },
+              { name: '福建', value: randomValue() },
+              { name: '贵州', value: randomValue() },
+              { name: '广东', value: randomValue() },
+              { name: '青海', value: randomValue() },
+              { name: '西藏', value: randomValue() },
+              { name: '四川', value: randomValue() },
+              { name: '宁夏', value: randomValue() },
+              { name: '海南', value: randomValue() },
+              { name: '台湾', value: randomValue() },
+              { name: '香港', value: randomValue() },
+              { name: '澳门', value: randomValue() }
+            ]
+          }
+        ]
+      })
+      const chartsHeight = document.getElementById('map').offsetHeight
+      myChart.resize({ height: chartsHeight })
+      window.addEventListener('resize', function () {
+        const chartsHeight = document.getElementById('map').offsetHeight
+        myChart.resize({ height: chartsHeight })
+      })
+    }
+  }
+}
 </script>
 
 <style scoped>
