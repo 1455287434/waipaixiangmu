@@ -1,6 +1,6 @@
 <template>
 <div class="full-screen">
-  <i class="el-icon-full-screen" @click="handleFullScreen"></i>
+<!--  <i class="el-icon-full-screen" @click="handleFullScreen"></i>-->
 </div>
 </template>
 
