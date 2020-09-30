@@ -94,6 +94,13 @@ const routes = [
         name: 'calculationFormulaDetal',
         component: ()=>import("../views/operationSystem/calculationFormula/calculationFormulaDetal.vue"),
         meta: { title: '计算公式', path: '/calculationFormulaDetal' }
+      },
+      {
+        
+        path: '/organizeLargeScreen',
+        name: 'organizeLargeScreen',
+        component: ()=>import("../views/operationSystem/organizeLargeScreen"),
+        meta: { title: '组织大屏', path: '/organizeLargeScreen' }
       }
       /* ------------------------- */
     ]

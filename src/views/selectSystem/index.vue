@@ -465,6 +465,12 @@ const operationMenuList = [{
                 url: '/5',
                 children: []
             },
+               {
+                title: '组织大屏',
+                icon: 'iconfont icon-shengchanjiagong',
+                url: '/organizeLargeScreen',
+                children: []
+            },
             {
                 title: '集中监控',
                 icon: 'iconfont icon-shengchanjiagong',
