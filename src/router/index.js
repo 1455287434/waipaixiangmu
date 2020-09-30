@@ -26,7 +26,7 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
-    redirect: '/login'
+    redirect: '/selectSystem'
   },
   {
     path: '/login',
@@ -103,10 +103,10 @@ const routes = [
         meta: { title: '计算公式', path: '/calculationFormulaDetal' }
       },
       {
-        
+
         path: '/organizeLargeScreen',
         name: 'organizeLargeScreen',
-        component: ()=>import("../views/operationSystem/organizeLargeScreen"),
+        component: () => import('../views/operationSystem/organizeLargeScreen'),
         meta: { title: '组织大屏', path: '/organizeLargeScreen' }
       }
       /* ------------------------- */

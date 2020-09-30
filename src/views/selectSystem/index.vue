@@ -539,17 +539,19 @@ export default {
   name: 'index',
   methods: {
     goPage (url) {
-      if (url === '/energySystem') {
-        sessionStorage.menuList = JSON.stringify(energyMenuList)
-        store.dispatch('setMenuFn', energyMenuList)
-      } else if (url === '/equipmentSystem') {
-        sessionStorage.menuList = JSON.stringify(equipmentMenuList)
-        store.dispatch('setMenuFn', equipmentMenuList)
-      } else if (url === '/operationSystem') {
-        sessionStorage.menuList = JSON.stringify(operationMenuList)
-        store.dispatch('setMenuFn', operationMenuList)
-      }
-      this.$router.push(url)
+      /* 跳转业务系统，更换http链接即可,如使用这种方法，下方代码可以注释 */
+      window.open('http://www.baidu.com', 'blank')
+      // if (url === '/energySystem') {
+      //   sessionStorage.menuList = JSON.stringify(energyMenuList)
+      //   store.dispatch('setMenuFn', energyMenuList)
+      // } else if (url === '/equipmentSystem') {
+      //   sessionStorage.menuList = JSON.stringify(equipmentMenuList)
+      //   store.dispatch('setMenuFn', equipmentMenuList)
+      // } else if (url === '/operationSystem') {
+      //   sessionStorage.menuList = JSON.stringify(operationMenuList)
+      //   store.dispatch('setMenuFn', operationMenuList)
+      // }
+      // this.$router.push(url)
     }
   }
 }
