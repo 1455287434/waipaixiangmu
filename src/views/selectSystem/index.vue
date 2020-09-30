@@ -474,7 +474,7 @@ const operationMenuList = [{
   {
     title: '计算属性',
     icon: 'iconfont icon-shengchanjiagong',
-    url: 'calculationFormula',
+    url: '/calculationFormula',
     children: []
 
   },
